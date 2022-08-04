@@ -91,7 +91,6 @@ Here you should say what actually happens when you execute the code above.
 ### Database diagram
 
 ```mermaid
-    %%{init: { 'theme': 'forest' } }%%
     erDiagram
         CARS { 
                 Long id PK
