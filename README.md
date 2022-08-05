@@ -1,21 +1,31 @@
 <img src="https://github.com/Oleksii-Mospan/Car-n-Driver/blob/dev/src/main/resources/logo.png?raw=true" alt="Logo of the project" align="right">
 
 # Car'n'Driver service &middot;
-[![Build Status](https://img.shields.io/travis/npm/npm/latest.svg?style=flat-square)](https://travis-ci.org/npm/npm) [![npm](https://img.shields.io/npm/v/npm.svg?style=flat-square)](https://www.npmjs.com/package/npm) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
-> Additional information or tag line
+[![version](https://img.shields.io/badge/version-1.0.0-yellowgreen.svg)](https://semver.org)
 
-A brief description of your project, what it is used for.
+This app is used for manage cars autopark with known drivers.
 
-## Installing / Getting started
+__You can try my application here__ [click](https://fast-mountain-11243.herokuapp.com)
 
-A quick introduction of the minimal setup you need to get a hello world up &
-running.
+#### What you can do in the app:
+- Create new cars, drivers and manufacturers
+- Set driver to needed car
+- Open list of all cars with list of drivers
+- Open list of cars for current/login driver
+- Delete car, driver or manufacturer
+- Logout to login with another driver
 
-```shell
-commands here
-```
+## Installing
+To install project:
+1. Compile project
+2. Push it to WebServer or download to any PaaS using its own instruction/tutorial
+3. Open page of your new application
+4. Enjoy
 
-Here you should say what actually happens when you execute the code above.
+## Getting started
+After run app (open page of web application) you will be redirected to login page. 
+On login page you must use known login and password, or you can create new driver by pressing 
+link to Driver page. 
 
 ## Developing
 
@@ -88,9 +98,66 @@ Here you should say what actually happens when you execute the code above.
     style DB stroke:#333,stroke-width:4px
 ```
 
+### Prerequisites
+
+### Built With
+Application was built with:
+- JDBC
+- Maven
+
+### Setting up Dev
+
+To start developing the project further:
+
+```shell
+git clone https://github.com/Oleksii-Mospan/hw-jv-web-security.git
+cd hw-jv-web-security/
+packagemanager install
+```
+
+Also, you need to configure local server. I'd use Tomcat 9.0.50 server.
+If you use IntelliJ IDEA here is good step-by-step tutorial: https://youtu.be/JIRDMGJ66SE.
+
+To configure connection of project to database fill free to edit ConnectionUtil.java (src/main/java/taxi/util/ConnectionUtil.java)
+
+```java
+private static final String URL = "jdbc:mysql://<URL_TO_DATABASE>:<PORT>/<DATABASE_NAME>?serverTimezone=UTC";
+private static final String USERNAME = "<DATABASE_USERNAME>";
+private static final String PASSWORD = "<DATABASE_PASSWORD>";
+private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+```
+#### where:
+- \<URL_TO_DATABASE> - URL to Database (for example: sql11.freemysqlhosting.net)
+- \<PORT> - port number of database (for example: 3306)
+- \<DATABASE_NAME> - name of database(for example: sql11510452)
+- \<DATABASE_USERNAME> - username to get permission to read and write to database
+- \<DATABASE_PASSWORD - password for \<DATABASE_USERNAME> user
+
+Just create SQL query and copy all from [init_db.sql](https://github.com/Oleksii-Mospan/hw-jv-web-security/blob/main/src/main/resources/init_db.sql)
+
+## Tests
+
+For now tests is under construction...
+
+## Database
+
+In this project we use MySQL database.
+
+### To configure tables in DataBase:
+1. Open file [init_db.sql](https://github.com/Oleksii-Mospan/hw-jv-web-security/blob/main/src/main/resources/init_db.sql)
+2. Copy the contents of the file
+3. Paste it to new SQL query tab in Workbench (or hosting for MySQL database)
+4. Run it
+
 ### Database diagram
 
 ```mermaid
+%%{init: {'theme': 'base', 
+    'themeVariables': { 'primaryColor': '#aa0066',
+                        'background': '#ff0000',
+                        'textColor': '#000000',
+                        'noteTextColor': '#ffffff',
+                        'lineColor': '#dddddd'}}}%%
     erDiagram
         CARS { 
                 Long id PK
@@ -123,114 +190,13 @@ Here you should say what actually happens when you execute the code above.
        
 ```
 
-### Prerequisites
-
-### Built With
-Application was built with:
-- JDBC
-- Maven
-
-### Setting up Dev
-
-To start developing the project further:
-
-```shell
-git clone https://github.com/Oleksii-Mospan/hw-jv-web-security.git
-cd hw-jv-web-security/
-packagemanager install
-```
-
-Also, you need to configure local server. I'd use Tomcat 9.0.50 server.
-If you use IntelliJ IDEA here is good step-by-step tutorial: https://youtu.be/JIRDMGJ66SE.
-
-To configure tables in DataBase:
-1. Open file [init_db.sql](https://github.com/Oleksii-Mospan/hw-jv-web-security/blob/main/src/main/resources/init_db.sql)
-2. Copy the contents of the file
-3. Paste it to new SQL query tab in Workbench (or hosting for MySQL database)
-4. Run it
-
-To configure connection of project to database fill free to use edit ConnectionUtil.java (src/main/java/taxi/util/ConnectionUtil.java):
->private static final String URL = "jdbc:mysql://<URL_TO_DATABASE>:<PORT>/<DATABASE_NAME>?serverTimezone=UTC";
->private static final String USERNAME = "<DATABASE_USERNAME>";
->private static final String PASSWORD = "<DATABASE_PASSWORD>";
->private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-
-Just create SQL query and copy all from [init_db.sql](https://github.com/Oleksii-Mospan/hw-jv-web-security/blob/main/src/main/resources/init_db.sql)
-
-### Building
-
-If your project needs some additional steps for the developer to build the
-project after some code changes, state them here. for example:
-
-```shell
-./configure
-make
-make install
-```
-
-Here again you should state what actually happens when the code above gets
-executed.
-
-### Deploying / Publishing
-give instructions on how to build and release a new version
-In case there's some step you have to take that publishes this project to a
-server, this is the right time to state it.
-
-```shell
-packagemanager deploy your-project -s server.com -u username -p password
-```
-
-And again you'd need to tell what the previous code actually does.
-
-## Versioning
-
-We can maybe use [SemVer](http://semver.org/) for versioning. For the versions available, see the [link to tags on this repository](/tags).
-
-
-## Configuration
-
-Here you should write what are all of the configurations a user can enter when using the project.
-
-## Tests
-
-Describe and show how to run the tests with code examples.
-Explain what these tests test and why.
-
-```shell
-Give an example
-```
-
-## Style guide
-
-Explain your code style and show how to check it.
-
-## Api Reference
-
-If the api is external, link to api documentation. If not describe your api including authentication methods as well as explaining all the endpoints with their required parameters.
-
-
-## Database
-
-Explaining what database (and version) has been used. Provide download links.
-Documents your database design and schemas, relations etc...
 
 ## Licensing
 
-State what the license is and how to find the text version of the license.
-# This is an educational project.
-Main topic: create web application and publish it to Internet.
+This is a free project and was used to learn mechanism of creation web application 
+and publish it to Internet.
 
-Main function of project:
-- Login and logout as driver
-- Display all drivers and cars from database
-- Display connection between cars and drivers (driver can rule more than one car)
-- Display only car, which login driver rules
-- Adding and deleting cars, drivers and manufacturers
-- "Sitting" driver to car
-
-__You can try my application here__ [click](https://fast-mountain-11243.herokuapp.com)
-
-
+# P.S.
 Some features I learned while programming this project:
 - Configuring MySQL database (queries, creation of tables, types of fields, etc.).
 - Working with JDBC and MySQL database.
@@ -240,8 +206,10 @@ Some features I learned while programming this project:
 - Using Session to store some information.
 - Using filters to show only permitted pages.
 - Using Dependency Injection for creating instances.
+- Creating README.md file.
+- Creating diagrams using [mermaid](https://mermaid-js.github.io/mermaid/#/) tool.  
 
-# Deploying project
-Deploying project was able by publication web application to the PaaS heroku.com
-Database was created on free service freemysqlhosting.net
+#### Deploying
+- Deploying project was able by publication web application to the PaaS [HEROKU](https://www.heroku.com/home)
+- Database was hosted on free service [Free MySQL Hosting](https://www.freemysqlhosting.net/)
 
