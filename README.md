@@ -4,28 +4,19 @@
 [![version](https://img.shields.io/badge/version-1.0.0-yellowgreen.svg)](https://semver.org)
 
 This app is used for manage cars autopark with known drivers.
+This is prototype of web application that represents taxi service. It consists of backend and 
+frontend parts, and implemented using n-tired architecture and compliance with SOLID. 
 
-__You can try my application here__ [click](https://fast-mountain-11243.herokuapp.com)
-
-#### What you can do in the app:
-- Create new cars, drivers and manufacturers
+#### It supports such functionality as:
+- Registration new user as driver
+- Login with driver login and password or logout to log in with another driver
+- Adding new cars, drivers and manufacturers
 - Set driver to needed car
 - Open list of all cars with list of drivers
 - Open list of cars for current/login driver
 - Delete car, driver or manufacturer
-- Logout to login with another driver
 
-## Installing
-To install project:
-1. Compile project
-2. Push it to WebServer or download to any PaaS using its own instruction/tutorial
-3. Open page of your new application
-4. Enjoy
-
-## Getting started
-After run app (open page of web application) you will be redirected to login page. 
-On login page you must use known login and password, or you can create new driver by pressing 
-link to Driver page. 
+__You can try my application here__ [click](https://fast-mountain-11243.herokuapp.com)
 
 ## Developing
 
@@ -98,56 +89,44 @@ link to Driver page.
     style DB stroke:#333,stroke-width:4px
 ```
 
-### Prerequisites
-
-### Built With
-Application was built with:
+### Technologies used:
 - JDBC
+- MySQL 8
+- Servlet
+- JSP
+- JSTL
+- Tomcat 9
 - Maven
+- Log4j2
+- CSS
 
-### Setting up Dev
+### Running project on local machine
 
-To start developing the project further:
-
-```shell
-git clone https://github.com/Oleksii-Mospan/hw-jv-web-security.git
-cd hw-jv-web-security/
-packagemanager install
-```
-
-Also, you need to configure local server. I'd use Tomcat 9.0.50 server.
-If you use IntelliJ IDEA here is good step-by-step tutorial: https://youtu.be/JIRDMGJ66SE.
-
-To configure connection of project to database fill free to edit ConnectionUtil.java (src/main/java/taxi/util/ConnectionUtil.java)
+- Clone this project into your local folder 
+- Open the project in an IDE
+- Install and configure Local Tomcat Server (set "/" in Deployment tab - car-n-driver:war exploded)
+- After run the application you need to create new driver by clicking to Drivers
+- Then you can log in by entering login and password
+- create a new driver by clicking on the "Registration" button.
+#### Setting up local DataBase
+- Download and install MySQL, Workbench
+- Copy and paste file [init_db.sql](https://github.com/Oleksii-Mospan/Car-n-Driver/blob/main/src/main/resources/init_db.sql) from resources folder to Workbench console and execute code there
+- To configure connection of project to database fill free to edit ConnectionUtil.java (src/main/java/taxi/util/ConnectionUtil.java)
 
 ```java
-private static final String URL = "jdbc:mysql://<URL_TO_DATABASE>:<PORT>/<DATABASE_NAME>?serverTimezone=UTC";
+private static final String URL = "jdbc:mysql://<URL_TO_DATABASE>/<DATABASE_NAME>?serverTimezone=UTC";
 private static final String USERNAME = "<DATABASE_USERNAME>";
 private static final String PASSWORD = "<DATABASE_PASSWORD>";
 private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 ```
 #### where:
-- \<URL_TO_DATABASE> - URL to Database (for example: sql11.freemysqlhosting.net)
-- \<PORT> - port number of database (for example: 3306)
-- \<DATABASE_NAME> - name of database(for example: sql11510452)
-- \<DATABASE_USERNAME> - username to get permission to read and write to database
-- \<DATABASE_PASSWORD - password for \<DATABASE_USERNAME> user
+<URL_TO_DATABASE> - URL to Database (for example: localhost) <br>
+<DATABASE_NAME> - name of database(for example: cars_n_drivers) <br>
+<DATABASE_USERNAME> - username to get permission to read and write to database <br>
+<DATABASE_PASSWORD - password for \<DATABASE_USERNAME> user <br>
 
-Just create SQL query and copy all from [init_db.sql](https://github.com/Oleksii-Mospan/hw-jv-web-security/blob/main/src/main/resources/init_db.sql)
-
-## Tests
-
-For now tests is under construction...
-
-## Database
-
-In this project we use MySQL database.
-
-### To configure tables in DataBase:
-1. Open file [init_db.sql](https://github.com/Oleksii-Mospan/hw-jv-web-security/blob/main/src/main/resources/init_db.sql)
-2. Copy the contents of the file
-3. Paste it to new SQL query tab in Workbench (or hosting for MySQL database)
-4. Run it
+Also, you need to configure local server. I'd use Tomcat 9.0.50 server.
+If you use IntelliJ IDEA here is good step-by-step tutorial: https://youtu.be/JIRDMGJ66SE.
 
 ### Database diagram
 
@@ -190,12 +169,6 @@ In this project we use MySQL database.
        
 ```
 
-
-## Licensing
-
-This is a free project and was used to learn mechanism of creation web application 
-and publish it to Internet.
-
 # P.S.
 Some features I learned while programming this project:
 - Configuring MySQL database (queries, creation of tables, types of fields, etc.).
@@ -208,8 +181,4 @@ Some features I learned while programming this project:
 - Using Dependency Injection for creating instances.
 - Creating README.md file.
 - Creating diagrams using [mermaid](https://mermaid-js.github.io/mermaid/#/) tool.  
-
-#### Deploying
-- Deploying project was able by publication web application to the PaaS [HEROKU](https://www.heroku.com/home)
-- Database was hosted on free service [Free MySQL Hosting](https://www.freemysqlhosting.net/)
 
